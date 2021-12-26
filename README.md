@@ -1,6 +1,12 @@
 # tianshu
 天枢 —— 基于vite/vue的前端控制台脚手架
 
+# Tag 0.0.1
+
+- 添加vue-router
+- 添加postcss-cssnext插件，支持css嵌套
+- 基于vue3 reative API实现了一套全局状态管理
+
 # Tag 0.0.0
 
 - 支持vue3中使用jsx/tsx
