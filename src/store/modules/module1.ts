@@ -1,23 +1,24 @@
-import store from '../index'
-
 export default {
   name: 'module1',
   state: {
-    sex: 'i am man'
+    name: 'i am module1'
+  },
+  getters: {
+    name2 ({ state }: IGetterContext) {
+      return state.name + '_getter'
+    }
   },
   mutations: {
-    setSex (state: IState, value: unknown) {
-      state.sex = value
+    setName ({ state }: IMutationContext, value: unknown) {
+      state.name = value
     }
   },
   actions: {
-    async initSex (commit: ICommit, value: unknown) {
-      const { setSex } = commit
-      const root = store.useStore()
+    async initName ({ commit }: IActionContext, value: unknown) {
+      const { setName } = commit
       setTimeout(() => {
-        setSex(value)
-        root[1].setName('i am root change in module1')
-      }, 10000)
+        setName(value)
+      }, 5000)
     }
   }
 }

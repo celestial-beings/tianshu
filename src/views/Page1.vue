@@ -1,31 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import store from '../store'
-
-console.log(store)
-
-const [state, commit, dispatch] = store.useStore()
-const [mState, mCommit, mDispatch] = store.useStore('module1')
-
-const count = ref(1)
-
+const root = store.useStore()
+const module1 = store.useStore('module1')
+console.log(root)
 setTimeout(() => {
-  commit.setName('i am root 3000')
+  root.commit.setName('23333333333333')
 }, 3000)
 
 setTimeout(() => {
-  mCommit.setSex('i am man 8000')
-}, 8000)
-
-dispatch.initName('i am root 5000')
-mDispatch.initSex('i am man 10000')
+  module1.commit.setName('i am module1 5000')
+}, 5000)
 </script>
 
 <template>
   <div>
-    <h1>Page{{ count }}</h1>
-    <h2>{{ state.name }}</h2>
-    <h2>{{ mState.sex }}</h2>
+    <h1>Page {{ root.state.name }}</h1>
+    <h1>Page {{ root.getters.name2 }}</h1>
   </div>
 </template>
 
