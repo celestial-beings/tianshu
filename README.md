@@ -5,7 +5,7 @@
 
 - 添加vue-router
 - 添加postcss-cssnext插件，支持css嵌套
-- 基于vue3 reative, computed, readonly API实现了一套全局状态管理。 API设计参考了vuex，基本能满足基本的全局状态管理需求。
+- 禁用 'vue/multi-word-component-names' 检查
 
 # Tag 0.0.0
 

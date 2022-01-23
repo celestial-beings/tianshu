@@ -16,5 +16,8 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module'
   },
-  parser: 'vue-eslint-parser'
+  parser: 'vue-eslint-parser',
+  rules: {
+    'vue/multi-word-component-names': 'off'
+  }
 }
