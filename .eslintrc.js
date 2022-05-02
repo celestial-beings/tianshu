@@ -18,6 +18,7 @@ module.exports = {
   },
   parser: 'vue-eslint-parser',
   rules: {
-    'vue/multi-word-component-names': 'off'
+    'vue/multi-word-component-names': 'off',
+    'vue/comment-directive': 'off'
   }
 }

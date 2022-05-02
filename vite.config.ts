@@ -1,7 +1,8 @@
 import path from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import cssnext from 'postcss-cssnext'
+import postcssNested from 'postcss-nested'
+import postcssPresetEnv from 'postcss-preset-env'
 import vueJSX from '@vitejs/plugin-vue-jsx'
 import eslintPlugin from 'vite-plugin-eslint'
 
@@ -13,11 +14,11 @@ export default defineConfig({
     eslintPlugin() as never
   ],
   resolve: {
-    alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }]
+    alias: [{ find: '@', replacement: path.resolve(__dirname, 'examples') }]
   },
   css: {
     postcss: {
-      plugins: [cssnext]
+      plugins: [postcssPresetEnv, postcssNested]
     }
   }
 })

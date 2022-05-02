@@ -9,8 +9,21 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "noImplicitAny": true,
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/App1.tsx"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "examples/**/*.ts",
+    "examples/**/*.d.ts",
+    "examples/**/*.tsx",
+    "examples/**/*.vue",
+    "examples/App1.tsx"
+  ]
 }

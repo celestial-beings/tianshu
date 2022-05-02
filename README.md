@@ -27,3 +27,8 @@
 ```
 "vetur.validation.script": false,
 ```
+
+# 2022-05-02
+
+- 移除 postcss-cssnext 插件
+- 新增 postcss-nested、postcss-preset-env 插件（参考 https://www.postcss.com.cn/， https://wenku.baidu.com/view/e3aec0035bfb770bf78a6529647d27284a733756.html）
