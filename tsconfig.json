@@ -13,7 +13,7 @@
       "esnext",
       "dom"
     ],
-    "noImplicitAny": true,
+    "noImplicitAny": false,
   },
   "include": [
     "src/**/*.ts",
@@ -24,6 +24,5 @@
     "examples/**/*.d.ts",
     "examples/**/*.tsx",
     "examples/**/*.vue",
-    "examples/App1.tsx"
   ]
 }

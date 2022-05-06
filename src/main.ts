@@ -1,9 +1,3 @@
-function test () {
-  console.log('test')
-}
+import init from './utils/init'
 
-function test1 () {
-  console.log('test1')
-}
-
-test()
+export default init
