@@ -1,7 +1,7 @@
 const route: Router.Route = {
   path: '/',
   name: 'baseRoute',
-  redirect: { name: 'flex' }
+  redirect: { name: 'flexGrid' }
 }
 
 export default route

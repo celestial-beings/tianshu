@@ -4,17 +4,23 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
 import { computed } from 'vue'
-import isValidParent from '../../../utils/isValidParent'
-import isNumber from '../../../utils/isNumber'
+import isValidParent from 'src/utils/isValidParent'
+import isVaildNumber from 'src/utils/isVaildNumber'
+const componentName = 'sj-flex-item'
+export default {
+  name: componentName
+}
+</script>
 
+<script setup lang="ts">
 /**
  * check parent is valid
  */
 const isValid = isValidParent('sj-flex')
 if (!isValid) {
-  console.error(new Error('非法使用FlexItem，请配合Flex使用'))
+  console.error(new Error('非法使用FlexItem组件，请配合Flex组件使用'))
 }
 
 /**
@@ -22,10 +28,11 @@ if (!isValid) {
  */
 interface IProps {
   order?: number | string;
-  grow?: boolean | number;
-  shrink?: boolean | number;
+  grow?: boolean | number | string;
+  shrink?: boolean | number | string;
   align?: 'auto' | 'start' | 'end' | 'center' | 'baseline' | 'stretch';
 }
+
 const props = withDefaults(defineProps<IProps>(), {
   order: 0,
   grow: false,
@@ -36,25 +43,16 @@ const props = withDefaults(defineProps<IProps>(), {
 /**
  * computed
  */
-const classNamePrefix = 'sj-flex-item'
+const classNamePrefix = componentName
 const classes = computed(() => ([
   classNamePrefix,
   `${classNamePrefix}-align-self-${props?.align}`
 ]))
 
 const styles = computed(() => ({
-  order: isNumber(props?.order) ? Number(props?.order) : 0,
-  flexGrow: Number(props?.grow),
-  flexShrink: Number(props?.shrink)
+  order: isVaildNumber(props?.order) ? Number(props?.order) : 0,
+  flexGrow: isVaildNumber(Number(props?.grow)) ? Number(props?.grow) : 0,
+  flexShrink: isVaildNumber(Number(props?.shrink)) ? Number(props?.shrink) : 0
 }))
 
 </script>
-
-<script lang="ts">
-export default {
-  name: 'sj-flex-item'
-}
-</script>
-
-<style lang="postcss">
-</style>

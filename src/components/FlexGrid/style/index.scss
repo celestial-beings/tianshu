@@ -1,0 +1,68 @@
+@mixin createClassByLoop ($size: null, $n: 24 ) {
+  $prefix: #{if($size, #{$size}-, $size)};
+  @for $i from 0 through $n {
+    &-#{$prefix}span-#{$i} {
+      @if $i==0 {
+        display: none;
+      }
+
+      @else {
+        width: calc($i / $n) * 100%;
+      }
+    }
+
+    &-#{$prefix}offset-#{$i} {
+      margin-left: calc($i / $n) * 100%;
+    }
+
+    &-#{$prefix}push-#{$i} {
+      position: relative;
+      left: calc($i / $n) * 100%;
+    }
+
+    &-#{$prefix}pull-#{$i} {
+      position: relative;
+      right: calc($i / $n) * 100%;
+    }
+  }
+}
+
+.sj-row {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+
+  .sj-col {
+    box-sizing: border-box;
+
+    @include createClassByLoop();
+    
+    @media screen and (max-width: 575px) {
+      @include createClassByLoop(xs);
+    }
+
+    @media screen and (min-width: 575px) {
+      @include createClassByLoop(sm);
+    }
+
+    @media screen and (min-width: 768px) {
+      @include createClassByLoop(md);
+    }
+
+    @media screen and (min-width: 992px) {
+      @include createClassByLoop(lg);
+    }
+
+    @media screen and (min-width: 1200px) {
+      @include createClassByLoop(xl);
+    }
+
+    @media screen and (min-width: 1600px) {
+      @include createClassByLoop(xxl);
+    }
+
+    @media screen and (min-width: 2000px) {
+      @include createClassByLoop(xxxl);
+    }
+  }
+}

@@ -1,5 +1,5 @@
 const isNumber: (value: unknown) => boolean = (value) => {
-  return !isNaN(Number(value))
+  return typeof value === 'number'
 }
 
 export default isNumber

@@ -4,9 +4,15 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
 import { computed } from 'vue'
+const componentName = 'sj-flex'
+export default {
+  name: componentName
+}
+</script>
 
+<script setup lang="ts">
 /**
  * props
  */
@@ -27,7 +33,7 @@ const props = withDefaults(defineProps<IProps>(), {
 /**
  * computed
  */
-const classNamePrefix = 'sj-flex'
+const classNamePrefix = componentName
 const classes = computed(() => ([
   classNamePrefix,
   `${classNamePrefix}-justify-${props?.justify}`,
@@ -35,15 +41,4 @@ const classes = computed(() => ([
   `${classNamePrefix}-direction-${props?.direction}`,
   props?.wrap ? `${classNamePrefix}-wrap` : `${classNamePrefix}-nowrap`
 ]))
-
 </script>
-
-<script lang="ts">
-export default {
-  name: 'sj-flex'
-}
-</script>
-
-<style lang="postcss">
-@import '../style.css'
-</style>

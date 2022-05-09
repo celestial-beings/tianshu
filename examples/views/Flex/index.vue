@@ -1,7 +1,7 @@
 <template>
-  <Flex style="background-color: yellow;height: 100px;">
-    <FlexItem order="1">1</FlexItem>
-    <FlexItem order="2" align="center">2</FlexItem>
+  <Flex style="background-color: yellow;height: 100px;width: 600px" wrap>
+    <FlexItem order="2">1</FlexItem>
+    <FlexItem order="1" align="center">2</FlexItem>
     <FlexItem order="3" align="end">3</FlexItem>
     <FlexItem order="4" align="stretch">4</FlexItem>
   </Flex>
@@ -12,7 +12,7 @@
 
 </script>
 
-<style lang="postcss">
+<style>
 .sj-flex-item {
   background-color: aquamarine;
   width: 300px;

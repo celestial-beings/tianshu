@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "esnext",
@@ -8,12 +9,18 @@
     "jsx": "preserve",
     "sourceMap": true,
     "resolveJsonModule": true,
+    "isolatedModules": true,
     "esModuleInterop": true,
     "lib": [
       "esnext",
       "dom"
     ],
-    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "noImplicitAny": false
+  },
+  "types": ["jest"],
+  "path": {
+    "src": ["src/*"]
   },
   "include": [
     "src/**/*.ts",
@@ -23,6 +30,12 @@
     "examples/**/*.ts",
     "examples/**/*.d.ts",
     "examples/**/*.tsx",
-    "examples/**/*.vue",
+    "examples/**/*.vue"
+, "src/__tests__/FlexBox/flex.spec.js"  ],
+  "exclude": ["node_modules"],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
   ]
 }

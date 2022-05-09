@@ -1,5 +1,6 @@
 import type { Component } from 'vue'
 import { Flex, FlexItem } from './FlexBox/index'
+import { Row, Col } from './FlexGrid/index'
 
 interface IComponents {
   [propName: string]: Component;
@@ -7,7 +8,9 @@ interface IComponents {
 
 const components: IComponents = {
   Flex,
-  FlexItem
+  FlexItem,
+  Row,
+  Col
 }
 
 export default components

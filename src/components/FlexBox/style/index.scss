@@ -1,0 +1,45 @@
+@import './var.scss';
+
+.sj-flex {
+  display: flex;
+  box-sizing: border-box;
+
+  @each $key, $value in $justify {
+    &-justify-#{$key} {
+      justify-content: $value;
+    }
+  }
+
+  @each $key, $value in $align {
+    &-align-#{$key} {
+      align-items: $value;
+    }
+  }
+
+  @each $value in $wrap {
+    &-#{$value} {
+      flex-wrap: $value;
+    }
+  }
+
+  @each $value in $direction {
+    &-direction-#{$value} {
+      flex-direction: $value;
+    }
+  }
+
+  /* js-flex-item */
+  &-item {
+    box-sizing: border-box;
+
+    &-align-self-auto {
+      align-self: auto;
+    }
+
+    @each $key, $value in $align {
+      &-align-self-#{$key} {
+        align-self: $value;
+      }
+    }
+  }
+}

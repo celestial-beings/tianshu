@@ -1,0 +1,20 @@
+$justify: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  space-between: space-between,
+  space-around: space-around,
+  space-evenly: space-evenly
+);
+
+$align: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  baseline: baseline,
+  stretch: stretch
+);
+
+$wrap: wrap, nowrap;
+
+$direction: row, row-reverse, column, column-reverse;
