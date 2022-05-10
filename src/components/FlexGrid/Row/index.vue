@@ -47,8 +47,6 @@ const styles = useStyles(offset)
 const classNamePrefix = componentName
 const classes = computed<string[]>(() => [classNamePrefix])
 
-console.log(offset?.value)
-
 /**
  * provide
  */

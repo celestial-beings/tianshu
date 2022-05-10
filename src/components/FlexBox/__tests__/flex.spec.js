@@ -1,5 +1,5 @@
-import { mount } from '@vue/test-utils';
-import Flex from 'src/components/FlexBox/Flex/index.vue';
+import { mount } from '@vue/test-utils'
+import Flex from 'src/components/FlexBox/Flex/index.vue'
 
 const justifyProp = ['start', 'end', 'center', 'space-between', 'space-around', 'space-evenly']
 const alignProp = ['start', 'end', 'center', 'baseline', 'stretch']
@@ -12,14 +12,17 @@ describe('FLex组件单元测试', () => {
   })
 
   it('基本使用', () => {
-    ['sj-flex', 'sj-flex-justify-start', 'sj-flex-align-start', 'sj-flex-direction-row', 'sj-flex-nowrap'].forEach(el => {
-      const wrapper = mount(Flex)
-      expect(wrapper.classes().includes(el)).toBe(true)
-    })
+    const wrapper = mount(Flex)
+    expect(wrapper.classes().includes('sj-flex')).toBe(true)
   })
 
   describe('Props测试', () => {
     describe('justify属性', () => {
+      it('justify=undefined', () => {
+        const wrapper = mount(Flex)
+        expect(wrapper.classes().join(' ').includes(`sj-flex-justify`)).toBe(false)
+      })
+
       justifyProp.forEach(el => {
         it(`justify="${el}"`, () => {
           const wrapper = mount(Flex, {
@@ -33,6 +36,12 @@ describe('FLex组件单元测试', () => {
     })
 
     describe('align属性', () => {
+      
+      it('align=undefined', () => {
+        const wrapper = mount(Flex)
+        expect(wrapper.classes().join(' ').includes(`sj-flex-align`)).toBe(false)
+      })
+
       alignProp.forEach(el => {
         it(`align="${el}"`, () => {
           const wrapper = mount(Flex, {
@@ -46,6 +55,11 @@ describe('FLex组件单元测试', () => {
     })
 
     describe('direction属性', () => {
+      it('direction=undefined', () => {
+        const wrapper = mount(Flex)
+        expect(wrapper.classes().join(' ').includes(`sj-flex-direction`)).toBe(false)
+      })
+
       directionProp.forEach(el => {
         it(`direction="${el}"`, () => {
           const wrapper = mount(Flex, {
@@ -59,6 +73,12 @@ describe('FLex组件单元测试', () => {
     })
 
     describe('wrap属性', () => {
+      it('wrap=undefined', () => {
+        const wrapper = mount(Flex)
+        expect(wrapper.classes().join(' ').includes(`sj-flex-wrap`)).toBe(false)
+        expect(wrapper.classes().join(' ').includes(`sj-flex-nowrap`)).toBe(false)
+      })
+
       it(`wrap="true"`, () => {
         const wrapper = mount(Flex, {
           propsData: {

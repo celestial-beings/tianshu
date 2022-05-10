@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :style="styles">
+  <div v-if="isValid" :class="classes" :style="styles">
     <slot></slot>
     {{size}}
   </div>
@@ -7,6 +7,7 @@
 
 <script lang="ts">
 import { Ref, inject, ComputedRef, computed } from 'vue'
+import isValidParent from 'src/utils/isValidParent'
 import useScreenResize from 'src/utils/hooks/useScreenResize'
 import isColResponsive from '../utils/isColResponsive'
 import useStyles from '../utils/hooks/col/useStylesComputed'
@@ -18,6 +19,14 @@ export default {
 </script>
 
 <script setup lang="ts">
+/**
+ * check parent is valid
+ */
+const isValid = isValidParent('sj-row')
+if (!isValid) {
+  console.error(new Error('非法使用Col组件，请配合Row组件使用'))
+}
+
 /**
  * props
  */

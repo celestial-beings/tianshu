@@ -1,10 +1,8 @@
 <template>
-  <div style="width: 800px;">
-    <Row style="height: 100px;" :gutter="[12, 8]">
-      <Col span="12"><div class="demo-item">col-8-1</div></Col>
-      <Col span="12"><div class="demo-item">col-8-1</div></Col>
-    </Row>
-  </div>
+  <Row style="height: 100px" :gutter="[16, 8]">
+    <Col span="12"><div class="demo-item">col-8-1</div></Col>
+    <Col span="8"><div class="demo-item">col-8-2</div></Col>
+  </Row>
 </template>
 
 <script setup lang="ts">

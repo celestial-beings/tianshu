@@ -19,15 +19,12 @@ export default {
 interface IProps {
   justify?: 'start' | 'end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
   align?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
-  wrap?: boolean;
+  wrap?: boolean | undefined;
   direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
 }
 
 const props = withDefaults(defineProps<IProps>(), {
-  justify: 'start',
-  align: 'start',
-  wrap: false,
-  direction: 'row'
+  wrap: undefined
 })
 
 /**
@@ -36,9 +33,12 @@ const props = withDefaults(defineProps<IProps>(), {
 const classNamePrefix = componentName
 const classes = computed(() => ([
   classNamePrefix,
-  `${classNamePrefix}-justify-${props?.justify}`,
-  `${classNamePrefix}-align-${props?.align}`,
-  `${classNamePrefix}-direction-${props?.direction}`,
-  props?.wrap ? `${classNamePrefix}-wrap` : `${classNamePrefix}-nowrap`
+  {
+    [`${classNamePrefix}-nowrap`]: props?.wrap === false,
+    [`${classNamePrefix}-wrap`]: props?.wrap === true,
+    [`${classNamePrefix}-direction-${props?.direction}`]: !!props?.direction,
+    [`${classNamePrefix}-justify-${props?.justify}`]: !!props?.justify,
+    [`${classNamePrefix}-align-${props?.align}`]: !!props?.align
+  }
 ]))
 </script>

@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { computed } from 'vue'
+import { computed, StyleValue } from 'vue'
 import isValidParent from 'src/utils/isValidParent'
 import isVaildNumber from 'src/utils/isVaildNumber'
 const componentName = 'sj-flex-item'
@@ -28,16 +28,14 @@ if (!isValid) {
  */
 interface IProps {
   order?: number | string;
-  grow?: boolean | number | string;
-  shrink?: boolean | number | string;
+  grow?: boolean | number | string | undefined;
+  shrink?: boolean | number | string | undefined;
   align?: 'auto' | 'start' | 'end' | 'center' | 'baseline' | 'stretch';
 }
 
 const props = withDefaults(defineProps<IProps>(), {
-  order: 0,
-  grow: false,
-  shrink: false,
-  align: 'auto'
+  grow: undefined,
+  shrink: undefined
 })
 
 /**
@@ -46,13 +44,25 @@ const props = withDefaults(defineProps<IProps>(), {
 const classNamePrefix = componentName
 const classes = computed(() => ([
   classNamePrefix,
-  `${classNamePrefix}-align-self-${props?.align}`
+  {
+    [`${classNamePrefix}-align-self-${props?.align}`]: !!props?.align
+  }
 ]))
 
-const styles = computed(() => ({
-  order: isVaildNumber(props?.order) ? Number(props?.order) : 0,
-  flexGrow: isVaildNumber(Number(props?.grow)) ? Number(props?.grow) : 0,
-  flexShrink: isVaildNumber(Number(props?.shrink)) ? Number(props?.shrink) : 0
-}))
+const styles = computed<StyleValue>(() => {
+  const tempStyles: StyleValue = {}
+  if (isVaildNumber(props?.order)) {
+    tempStyles.order = Number(props?.order)
+  }
+
+  if (isVaildNumber(props?.grow)) {
+    tempStyles.flexGrow = Number(props?.grow)
+  }
+
+  if (isVaildNumber(props?.shrink)) {
+    tempStyles.flexShrink = Number(props?.shrink)
+  }
+  return tempStyles
+})
 
 </script>
