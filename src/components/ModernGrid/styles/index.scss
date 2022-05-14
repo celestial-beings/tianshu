@@ -1,0 +1,34 @@
+@import './var.scss';
+
+.sj-grid {
+  box-sizing: border-box;
+  display: grid;
+
+  @each $key, $value in $flow {
+    &-flow-#{$key} {
+      grid-auto-flow: $value;
+    }
+  }
+
+  @each $key, $value in $justify-items {
+    &-justify-items-#{$key} {
+      justify-items: $value;
+    }
+  }
+
+  &-item {
+    box-sizing: border-box;
+
+    @each $key, $value in $justify-self {
+      &-justify-self-#{$key} {
+        justify-self: $value;
+      }
+    }
+  
+    @each $key, $value in $align-self {
+      &-align-self-#{$key} {
+        align-self: $value;
+      }
+    }
+  }
+}

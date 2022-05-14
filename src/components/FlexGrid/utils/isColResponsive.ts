@@ -1,7 +1,7 @@
 import { ScreenSize } from 'src/utils/hooks/useScreenResize'
 import isObject from 'src/utils/isObject'
 import isVaildNumber from 'src/utils/isVaildNumber'
-import IProps from '../types/col'
+import { IProps } from '../types/col'
 
 const isColResponsive: (props: IProps) => boolean = (props) => {
   const keys = Object.keys(ScreenSize)

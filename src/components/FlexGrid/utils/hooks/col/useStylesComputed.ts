@@ -1,8 +1,8 @@
-import { computed, StyleValue, Ref, ComputedRef } from 'vue'
+import { computed } from 'vue'
 import isVaildNumber from 'src/utils/isVaildNumber'
-import IProps from '../../../types/col'
+import { UseStylesComputed, StyleValue } from '../../../types/col'
 
-const useStyles: (size: Ref<string> | null, offset: ComputedRef<[number, number]>, props: IProps) => ComputedRef<StyleValue> = (size, offset, props) => {
+const useStylesComputed: UseStylesComputed = (size, offset, props) => {
   const styles = computed<StyleValue>(() => {
     const tempStyles: StyleValue = {}
     /**
@@ -26,4 +26,4 @@ const useStyles: (size: Ref<string> | null, offset: ComputedRef<[number, number]
   return styles
 }
 
-export default useStyles
+export default useStylesComputed

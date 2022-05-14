@@ -36,7 +36,6 @@ describe('Col组件单元测试', () => {
     const children = wrapper.findAllComponents(Col)
     expect(children[0].text()).toBe('col-1')
     expect(children[1].text()).toBe('col-2')
-    console.log(children[0].classes())
     expect(children[0].classes().join(' ')).toBe('sj-col sj-col-span-12')
   })
 

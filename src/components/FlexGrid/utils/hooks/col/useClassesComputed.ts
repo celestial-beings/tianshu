@@ -1,12 +1,12 @@
-import { computed, ComputedRef } from 'vue'
+import { computed } from 'vue'
 import isObject from 'src/utils/isObject'
 import isVaildNumber from 'src/utils/isVaildNumber'
 import { ScreenSize } from 'src/utils/hooks/useScreenResize'
-import IProps from '../../../types/col'
+import { UseClassesComputed, Classes } from '../../../types/col'
 
-const useClasses: (classNamePrefix: string, props: IProps) => ComputedRef<(string | Record<string, unknown>)[]> = (classNamePrefix, props) => {
-  const classes = computed<Array<string | Record<string, unknown>>>(() => {
-    const tempClassesArray: Array<string | Record<string, unknown>> = [classNamePrefix]
+const useClassesComputed: UseClassesComputed = (classNamePrefix, props) => {
+  const classes = computed<Classes>(() => {
+    const tempClassesArray: Classes = [classNamePrefix]
     /**
      * handle span prop
      */
@@ -67,4 +67,4 @@ const useClasses: (classNamePrefix: string, props: IProps) => ComputedRef<(strin
   return classes
 }
 
-export default useClasses
+export default useClassesComputed

@@ -1,0 +1,17 @@
+$flow: (
+  row: row,
+  row-dense: row dense,
+  column: column,
+  column-dense: column dense
+);
+
+$justify-items: (
+  start: start,
+  end: end,
+  center: center,
+  stretch: stretch
+);
+
+$justify-self: $justify-items;
+
+$align-self: $justify-items;

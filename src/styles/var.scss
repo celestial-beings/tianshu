@@ -1,0 +1,24 @@
+:root {
+  /* color */
+  --sj-primary-color: #1890ff;
+  --sj-primary-hover-color: #40a9ff;
+  --sj-primary-active-color: #096dd9;
+  --sj-primary-focus-background-color: #e6f7ff;
+  --sj-info-color: var(--sj-primary-color);
+  --sj-success-color: #52c41a;
+  --sj-error-color: #ff4d4f;
+  --sj-warning-color: #faad14;
+  --sj-title-color: rgba(0, 0, 0, 0.85);
+  --sj-primary-text-color: var(--sj-title-color);
+  --sj-secondary-text-color: rgba(0, 0, 0, 0.45);
+  --sj-disable-color: rgba(0, 0, 0, 0.25);
+  --sj-border-color: rgba(0, 0, 0, 0.15);
+  --sj-divider-color: rgba(0, 0, 0, 0.06);
+  --sj-background-color: rgba(0, 0, 0, 0.04);
+  --sj-table-header-background-color: rgba(0, 0, 0, 0.02);
+
+  /* font-size */
+  --sj-font-size-small: 12px;
+  --sj-font-size-normal: 14px;
+  --js-font-size-large: 16px;
+}

@@ -27,7 +27,7 @@ module.exports = {
     'default',
     ['./node_modules/jest-html-reporter', {
       pageTitle: '神机UI 单元测试',
-      outputPath: '<rootDir>/src/test.report.html'
+      outputPath: '<rootDir>/test.report.html'
     }]
 
   ]

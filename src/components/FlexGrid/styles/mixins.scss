@@ -1,0 +1,28 @@
+@mixin createClassByLoop ($size: null, $n: 24 ) {
+  $prefix: #{if($size, #{$size}-, $size)};
+  @for $i from 0 through $n {
+    &-#{$prefix}span-#{$i} {
+      @if $i==0 {
+        display: none;
+      }
+
+      @else {
+        width: calc($i / $n) * 100%;
+      }
+    }
+
+    &-#{$prefix}offset-#{$i} {
+      margin-left: calc($i / $n) * 100%;
+    }
+
+    &-#{$prefix}push-#{$i} {
+      position: relative;
+      left: calc($i / $n) * 100%;
+    }
+
+    &-#{$prefix}pull-#{$i} {
+      position: relative;
+      right: calc($i / $n) * 100%;
+    }
+  }
+}

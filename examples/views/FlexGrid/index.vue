@@ -1,5 +1,5 @@
 <template>
-  <Row style="height: 100px" :gutter="[16, 8]">
+  <Row style="height: 100px">
     <Col span="12"><div class="demo-item">col-8-1</div></Col>
     <Col span="8"><div class="demo-item">col-8-2</div></Col>
   </Row>
