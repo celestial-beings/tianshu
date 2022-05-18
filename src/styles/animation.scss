@@ -1,8 +1,8 @@
-@keyframes sj-circle {
+@keyframes sj-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
-.sj-circle-animation {
-  animation: sj-circle 1s linear infinite;
+.sj-spin {
+  animation: sj-spin 1s linear infinite;
 }

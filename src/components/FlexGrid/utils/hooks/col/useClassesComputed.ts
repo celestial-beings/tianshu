@@ -13,7 +13,7 @@ const useClassesComputed: UseClassesComputed = (classNamePrefix, props) => {
     if (isVaildNumber(props?.span)) {
       const tempSpan = Number(props?.span)
       if (tempSpan >= 0 && tempSpan <= 24) {
-        tempClassesArray.push(`sj-col-span-${tempSpan}`)
+        tempClassesArray.push(`${classNamePrefix}-span-${tempSpan}`)
       } else {
         console.error(new Error('Col: span 属性取值范围错误 ([0, 24])'))
       }
@@ -22,9 +22,9 @@ const useClassesComputed: UseClassesComputed = (classNamePrefix, props) => {
     }
 
     const tempClassesObj = {
-      [`sj-col-offset-${props?.offset}`]: isVaildNumber(props?.offset) && !!Number(props?.offset),
-      [`sj-col-push-${props?.push}`]: isVaildNumber(props?.push) && !!Number(props?.push),
-      [`sj-col-pull-${props?.pull}`]: isVaildNumber(props?.pull) && !!Number(props?.pull)
+      [`${classNamePrefix}-offset-${props?.offset}`]: isVaildNumber(props?.offset) && !!Number(props?.offset),
+      [`${classNamePrefix}-push-${props?.push}`]: isVaildNumber(props?.push) && !!Number(props?.push),
+      [`${classNamePrefix}-pull-${props?.pull}`]: isVaildNumber(props?.pull) && !!Number(props?.pull)
     }
 
     /**
@@ -40,7 +40,7 @@ const useClassesComputed: UseClassesComputed = (classNamePrefix, props) => {
               if (tempValue < 0 || tempValue > 24) {
                 console.error(new Error(`Col: ${size} 属性 ${key} 字段取值范围错误 ([0, 24])`))
               } else {
-                tempClassesArray.push(`sj-col-${size}-${key}-${Number(screenSizeValue[key])}`)
+                tempClassesArray.push(`${classNamePrefix}-${size}-${key}-${Number(screenSizeValue[key])}`)
               }
             } else {
               console.error(new Error(`Col: ${size} 属性 ${key} 字段类型错误 (number | string | Record<string, number | string>)`))
@@ -50,7 +50,7 @@ const useClassesComputed: UseClassesComputed = (classNamePrefix, props) => {
       } else if (isVaildNumber(screenSizeValue)) {
         const tempSpan = Number(screenSizeValue)
         if (tempSpan >= 0 && tempSpan <= 24) {
-          tempClassesArray.push(`sj-col-${size}-span-${tempSpan}`)
+          tempClassesArray.push(`${classNamePrefix}-${size}-span-${tempSpan}`)
         } else {
           console.error(new Error(`Col: ${size} 属性取值范围错误 ([0, 24])`))
         }

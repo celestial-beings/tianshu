@@ -29,6 +29,3 @@ const classes = useClassesComputed(componentName, props)
 const styles = useStylesComputed(props)
 
 </script>
-
-<style lang="scss">
-</style>

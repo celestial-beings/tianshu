@@ -1,0 +1,172 @@
+$button-type: (
+  normal: (
+    backgroundColor: #ffffff,
+    borderColor: var(--sj-border-color),
+    color: var(--sj-primary-text-color),
+    hover: (
+      backgroundColor: #ffffff,
+      borderColor: var(--sj-primary-hover-color),
+      color: var(--sj-primary-hover-color)
+    ),
+    active: (
+      backgroundColor: #ffffff,
+      borderColor: var(--sj-primary-active-color),
+      color: var(--sj-primary-active-color)
+    ),
+    waveColor: var(--sj-primary-color),
+  ),
+  primary: (
+    backgroundColor: var(--sj-primary-color),
+    borderColor: var(--sj-primary-color),
+    color: #ffffff,
+    hover: (
+      backgroundColor: var(--sj-primary-hover-color),
+      borderColor: var(--sj-primary-hover-color),
+      color: #ffffff,
+    ),
+    active: (
+      backgroundColor: var(--sj-primary-active-color),
+      borderColor: var(--sj-primary-active-color),
+      color: #ffffff,
+    ),
+    waveColor: var(--sj-primary-color),
+  ),
+  success: (
+    backgroundColor: var(--sj-success-color),
+    borderColor: var(--sj-success-color),
+    color: #ffffff,
+    hover: (
+      backgroundColor: var(--sj-success-hover-color),
+      borderColor: var(--sj-success-hover-color),
+      color: #ffffff,
+    ),
+    active: (
+      backgroundColor: var(--sj-success-hover-color),
+      borderColor: var(--sj-success-active-color),
+      color: #ffffff,
+    ),
+    waveColor: var(--sj-success-color),
+  ),
+  warning: (
+    backgroundColor: var(--sj-warning-color),
+    borderColor: var(--sj-warning-color),
+    color: #ffffff,
+    hover: (
+      backgroundColor: var(--sj-warning-hover-color),
+      borderColor: var(--sj-warning-hover-color),
+      color: #ffffff,
+    ),
+    active: (
+      backgroundColor: var(--sj-warning-hover-color),
+      borderColor: var(--sj-warning-active-color),
+      color: #ffffff,
+    ),
+    waveColor: var(--sj-warning-color),
+  ),
+  error: (
+    backgroundColor: var(--sj-error-color),
+    borderColor: var(--sj-error-color),
+    color: #ffffff,
+    hover: (
+      backgroundColor: var(--sj-error-hover-color),
+      borderColor: var(--sj-error-hover-color),
+      color: #ffffff,
+    ),
+    active: (
+      backgroundColor: var(--sj-error-hover-color),
+      borderColor: var(--sj-error-active-color),
+      color: #ffffff,
+    ),
+    waveColor: var(--sj-error-color),
+  ),
+  info: (
+    backgroundColor: var(--sj-info-color),
+    borderColor: var(--sj-info-color),
+    color: #ffffff,
+    hover: (
+      backgroundColor: var(--sj-info-hover-color),
+      borderColor: var(--sj-info-hover-color),
+      color: #ffffff,
+    ),
+    active: (
+      backgroundColor: var(--sj-info-hover-color),
+      borderColor: var(--sj-info-active-color),
+      color: #ffffff,
+    ),
+    waveColor: var(--sj-info-color),
+  ),
+);
+
+$button-size: (
+  normal: (
+    height: var(--sj-height-normal),
+    fontSize: var(--sj-font-size-normal)
+  ),
+  small: (
+    height: var(--sj-height-small),
+    fontSize: var(--sj-font-size-small)
+  ),
+  large: (
+    height: var(--sj-height-large),
+    fontSize: var(--sj-font-size-large)
+  )
+);
+
+$button-ghost: (
+  primary: (
+    color: var(--sj-primary-color),
+    hoverColor: var(--sj-primary-hover-color),
+    activeColor: var(--sj-primary-active-color)
+  ),
+  success: (
+    color: var(--sj-success-color),
+    hoverColor: var(--sj-success-hover-color),
+    activeColor: var(--sj-success-active-color)
+  ),
+  warning: (
+    color: var(--sj-warning-color),
+    hoverColor: var(--sj-warning-hover-color),
+    activeColor: var(--sj-warning-active-color)
+  ),
+  error: (
+    color: var(--sj-error-color),
+    hoverColor: var(--sj-error-hover-color),
+    activeColor: var(--sj-error-active-color)
+  ),
+  info: (
+    color: var(--sj-info-color),
+    hoverColor: var(--sj-info-hover-color),
+    activeColor: var(--sj-info-active-color)
+  ),
+);
+
+$button-text: (
+  normal: (
+    color: var(--sj-primary-text-color)
+  ),
+  primary: (
+    color: var(--sj-primary-color),
+    hoverColor: var(--sj-primary-hover-color),
+    activeColor: var(--sj-primary-active-color)
+  ),
+  success: (
+    color: var(--sj-success-color),
+    hoverColor: var(--sj-success-hover-color),
+    activeColor: var(--sj-success-active-color)
+  ),
+  warning: (
+    color: var(--sj-warning-color),
+    hoverColor: var(--sj-warning-hover-color),
+    activeColor: var(--sj-warning-active-color)
+  ),
+  error: (
+    color: var(--sj-error-color),
+    hoverColor: var(--sj-error-hover-color),
+    activeColor: var(--sj-error-active-color)
+  ),
+  info: (
+    color: var(--sj-info-color),
+    hoverColor: var(--sj-info-hover-color),
+    activeColor: var(--sj-info-active-color)
+  )
+);

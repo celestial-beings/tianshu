@@ -1,13 +1,5 @@
 :root {
   /* color */
-  --sj-primary-color: #1890ff;
-  --sj-primary-hover-color: #40a9ff;
-  --sj-primary-active-color: #096dd9;
-  --sj-primary-focus-background-color: #e6f7ff;
-  --sj-info-color: var(--sj-primary-color);
-  --sj-success-color: #52c41a;
-  --sj-error-color: #ff4d4f;
-  --sj-warning-color: #faad14;
   --sj-title-color: rgba(0, 0, 0, 0.85);
   --sj-primary-text-color: var(--sj-title-color);
   --sj-secondary-text-color: rgba(0, 0, 0, 0.45);
@@ -21,4 +13,13 @@
   --sj-font-size-small: 12px;
   --sj-font-size-normal: 14px;
   --js-font-size-large: 16px;
+
+  /* block */
+  --sj-height-small: 24px;
+  --sj-height-normal: 32px;
+  --sj-height-large: 40px;
+
+  /* border */
+  --sj-border-width: 1px;
+  --sj-border-radius: 2px;
 }

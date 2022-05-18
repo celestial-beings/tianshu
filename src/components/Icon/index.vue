@@ -28,7 +28,7 @@ const classes = computed<Classes>(() => ([
   classNamePrefix,
   SIZE.includes(props?.size as string) ? `${classNamePrefix}-size-${props?.size}` : '',
   {
-    'sj-circle-animation': /^loading-[a-f]$/.test(props?.type)
+    'sj-spin': /^loading-[a-f]$/.test(props?.type)
   }
 ]))
 
@@ -43,6 +43,8 @@ const styles = computed<StyleValue>(() => ({
 @import './font/iconfont.css';
 
 .sj-icon {
+  display: inline-block;
+  box-sizing: border-box;
   font-size: var(--sj-font-size-normal);
   color: var(--sj-primary-text-color);
 

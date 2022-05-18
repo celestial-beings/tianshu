@@ -1,0 +1,240 @@
+@import './var.scss';
+
+@keyframes sj-wave-opacity {
+  from {
+    opacity: 0.6;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.sj-button {
+  position: relative;
+  padding: 0 15px;
+  box-sizing: border-box;
+  border-style: solid;
+  text-align: center;
+  border-width: var(--sj-border-width);
+  border-radius: var(--sj-border-radius);
+  cursor: pointer;
+
+  /* type */
+  @each $key,
+  $value in $button-type {
+    &-type-#{$key} {
+      background-color: map-get($value, "backgroundColor");
+      border-color: map-get($value, "borderColor");
+      color: map-get($value, "color");
+
+      &:hover,
+      &:focus {
+        background-color: map-get(map-get($value, "hover"), "backgroundColor");
+        border-color: map-get(map-get($value, "hover"), "borderColor");
+        color: map-get(map-get($value, "hover"), "color");
+      }
+
+      &:active {
+        background-color: map-get(map-get($value, "active"), "backgroundColor");
+        border-color: map-get(map-get($value, "active"), "borderColor");
+        color: map-get(map-get($value, "active"), "color");
+      }
+
+      @keyframes sj-wave-spread-#{$key} {
+        from {
+          outline: 0.5px solid map-get($value, "waveColor");
+        }
+
+        to {
+          outline: 5.5px solid map-get($value, "waveColor");
+        }
+      }
+
+      .sj-wave-spread-active {
+        animation-name: sj-wave-spread-#{$key},
+        sj-wave-opacity;
+        animation-duration: 0.6s;
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+      }
+
+      .sj-icon {
+        color: inherit;
+      }
+    }
+  }
+
+  /* size */
+  @each $key,
+  $value in $button-size {
+    &-size-#{$key} {
+      height: map-get($value, "height");
+      line-height: map-get($value, "height");
+      font-size: map-get($value, "fontSize");
+
+      .sj-icon {
+        font-size: inherit;
+      }
+    }
+  }
+
+  /* long */
+  &-long {
+    width: 100%;
+  }
+
+  /* loading */
+  &-loading {
+    cursor: default;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      right: -1px;
+      bottom: -1px;
+      background-color: rgba(255, 255, 255, 0.35)
+    }
+  }
+
+  /* dashed */
+  &-border-dashed {
+    border-style: dashed;
+  }
+
+
+  /* ghost */
+  &-ghost {
+    background-color: transparent;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: transparent;
+    }
+  }
+
+  @each $key,
+  $value in $button-ghost {
+    &-#{$key}-ghost {
+      color: map-get($value, "color");
+
+      &:hover,
+      &:focus {
+        color: map-get($value, "hoverColor");
+      }
+
+      &:active {
+        color: map-get($value, "activeColor");
+      }
+    }
+  }
+
+  /* text */
+  @each $key,
+  $value in $button-text {
+    &-#{$key}-text {
+      border-color: transparent;
+      background-color: transparent;
+      color: map-get($value, "color");
+
+      &:hover,
+      &:focus,
+      &:active {
+        border-color: transparent;
+        background-color: transparent;
+      }
+
+      @if $key !='normal' {
+
+        &:hover,
+        &:focus {
+          color: map-get($value, "hoverColor");
+        }
+
+        &:active {
+          color: map-get($value, "activeColor");
+        }
+      }
+    }
+  }
+
+  /* shape */
+  &-shape-circle {
+    border-radius: 50%;
+    padding: 0;
+
+    &-small {
+      width: var(--sj-height-small);
+    }
+
+    &-normal {
+      width: var(--sj-height-normal);
+    }
+
+    &-large {
+      width: var(--sj-height-large);
+    }
+
+    .sj-button-preset-icon {
+      margin-right: 0;
+    }
+  }
+
+  &-shape-round {
+    &-small {
+      border-radius: var(--sj-height-small);
+    }
+
+    &-normal {
+      border-radius: var(--sj-height-normal);
+    }
+
+    &-large {
+      border-radius: var(--sj-height-large);
+    }
+  }
+
+  /* disabled */
+  &-disabled {
+    cursor: not-allowed;
+    color: var(--sj-disable-color);
+    border-color: var(--sj-border-color);
+    background-color: var(--sj-background-color);
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--sj-disable-color);
+      border-color: var(--sj-border-color);
+      background-color: var(--sj-background-color);
+    }
+  }
+
+  &-text-disabled {
+    border-color: transparent;
+    background-color: transparent;
+
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: transparent;
+      background-color: transparent;
+    }
+  }
+
+  &-ghost-disabled {
+    background-color: transparent;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: transparent;
+    }
+  }
+
+  &-preset-icon {
+    margin-right: 6px;
+  }
+}

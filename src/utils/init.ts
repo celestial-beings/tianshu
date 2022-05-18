@@ -1,5 +1,6 @@
 import type { App, Component } from 'vue'
 import Components from '../components'
+import createTheme from './theme'
 
 interface IInitOptions {
   [propName: string]: any;
@@ -58,8 +59,14 @@ const install: (app: App, options: IInitOptions) => void = (app, options) => {
   })
 }
 
+/**
+ * init theme
+ */
+createTheme()
+
 export default {
   install,
   register,
+  createTheme,
   ...Components
 }
