@@ -13,7 +13,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-const 
+const childrenRef = ref(null)
+
 /**
  * props
  */
@@ -33,8 +34,10 @@ const classes = computed<Classes>(() => ([
   classNamePrefix,
   {
     [`${classNamePrefix}-size-${props?.size}`]: props?.size === 'small' || props?.size === 'large',
+    [`${classNamePrefix}-horizontal`]: !props?.vertical,
     [`${classNamePrefix}-vertical`]: props?.vertical,
-    [`${classNamePrefix}-round`]: props?.round
+    [`${classNamePrefix}-horizontal-round-${props?.size}`]: props?.round && !props?.vertical,
+    [`${classNamePrefix}-vertical-round-${props?.size}`]: props?.round && props?.vertical
   }
 ]))
 </script>

@@ -5,6 +5,52 @@
       <Button>Button2</Button>
       <Button>Button3</Button>
     </ButtonGroup>
+    <Flex align="center">
+      <ButtonGroup size="small">
+        <Button type="primary">Button1</Button>
+        <Button type="primary">Button2</Button>
+        <Button type="primary">Button3</Button>
+      </ButtonGroup>
+      <ButtonGroup>
+        <Button type="primary">Button1</Button>
+        <Button type="primary">Button2</Button>
+        <Button type="primary">Button3</Button>
+      </ButtonGroup>
+      <ButtonGroup size="large">
+        <Button type="primary">Button1</Button>
+        <Button type="primary">Button2</Button>
+        <Button type="primary">Button3</Button>
+      </ButtonGroup>
+    </Flex>
+    <Flex align="center">
+      <ButtonGroup size="small" round>
+        <Button type="primary">Button1</Button>
+        <Button type="primary">Button2</Button>
+        <Button type="primary">Button3</Button>
+      </ButtonGroup>
+      <ButtonGroup round>
+        <Button type="primary">Button1</Button>
+        <Button type="primary">Button2</Button>
+        <Button type="primary">Button3</Button>
+      </ButtonGroup>
+      <ButtonGroup size="large" round>
+        <Button type="primary">Button1</Button>
+        <Button type="primary">Button2</Button>
+        <Button type="primary">Button3</Button>
+      </ButtonGroup>
+    </Flex>
+    <Flex align="center">
+      <ButtonGroup vertical round>
+        <Button>Button1</Button>
+        <Button>Button2</Button>
+        <Button>Button3</Button>
+      </ButtonGroup>
+      <ButtonGroup vertical round>
+        <Button type="primary">Button1</Button>
+        <Button type="primary">Button2</Button>
+        <Button type="primary">Button3</Button>
+      </ButtonGroup>
+    </Flex>
   </div>
   <div class="demo">
     <Button size="large" @click="click">Button</Button>
@@ -88,10 +134,11 @@ const click = (event) => {
 </script>
 
 <style lang="scss">
-.demo > .sj-button {
+.demo>.sj-button {
   margin: 16px;
 }
-.demo > .sj-button-group {
+
+.demo .sj-button-group {
   margin: 16px;
 }
 </style>
