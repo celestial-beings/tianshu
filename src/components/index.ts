@@ -5,6 +5,7 @@ import { Row, Col } from './FlexGrid/index'
 import { Grid, GridItem } from './ModernGrid/index'
 import { Icon } from './Icon/index'
 import { Button, ButtonGroup } from './Button/index'
+import { Divider } from './Divider/index'
 
 interface IComponents {
   [propName: string]: Component;
@@ -19,7 +20,8 @@ const components: IComponents = {
   GridItem,
   Icon,
   Button,
-  ButtonGroup
+  ButtonGroup,
+  Divider
 }
 
 export default components

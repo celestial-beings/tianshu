@@ -1,7 +1,8 @@
 import { computed } from 'vue'
-import { UseClassesComputed, Classes } from '../../../types/grid'
+import { IGridProps } from '../../../types'
+import { UseClassesComputed, Classes } from 'src/types/global'
 
-const useClassesComputed: UseClassesComputed = (classNamePrefix, props) => {
+const useClassesComputed: UseClassesComputed<IGridProps> = (classNamePrefix, props) => {
   const classes = computed<Classes>(() => {
     const tempClassesArray: Classes = [classNamePrefix]
 

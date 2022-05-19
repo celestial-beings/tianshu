@@ -1,9 +1,9 @@
 import { ScreenSize } from 'src/utils/hooks/useScreenResize'
 import isObject from 'src/utils/isObject'
 import isVaildNumber from 'src/utils/isVaildNumber'
-import IProps from '../types/row'
+import { IRowProps } from '../types'
 
-const isRowResponsive: (props: IProps) => boolean = (props) => {
+const isRowResponsive: (props: IRowProps) => boolean = (props) => {
   if (props?.gutter && isObject(props?.gutter)) {
     const keys = Object.keys(ScreenSize)
     for (const key of keys) {

@@ -1,6 +1,7 @@
 import { computed } from 'vue'
 import isVaildNumber from 'src/utils/isVaildNumber'
-import { UseStylesComputed, StyleValue } from '../../../types/col'
+import { StyleValue } from 'src/types/global'
+import { UseStylesComputed } from '../../../types'
 
 const useStylesComputed: UseStylesComputed = (size, offset, props) => {
   const styles = computed<StyleValue>(() => {

@@ -2,9 +2,10 @@ import { computed } from 'vue'
 import isObject from 'src/utils/isObject'
 import isVaildNumber from 'src/utils/isVaildNumber'
 import { ScreenSize } from 'src/utils/hooks/useScreenResize'
-import { UseClassesComputed, Classes } from '../../../types/col'
+import { IColProps } from '../../../types'
+import { UseClassesComputed, Classes } from 'src/types/global'
 
-const useClassesComputed: UseClassesComputed = (classNamePrefix, props) => {
+const useClassesComputed: UseClassesComputed<IColProps> = (classNamePrefix, props) => {
   const classes = computed<Classes>(() => {
     const tempClassesArray: Classes = [classNamePrefix]
     /**

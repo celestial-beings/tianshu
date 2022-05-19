@@ -1,7 +1,8 @@
 import { computed } from 'vue'
-import { UseClassesComputed, Classes } from '../../types/button'
+import { IButtonProps } from '../../../types'
+import { UseClassesComputed, Classes } from 'src/types/global'
 
-const useClassesComputed: UseClassesComputed = (classNamePrefix, props) => {
+const useClassesComputed: UseClassesComputed<IButtonProps> = (classNamePrefix, props) => {
   const classes = computed<Classes>(() => {
     return [
       classNamePrefix,

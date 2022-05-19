@@ -10,7 +10,7 @@
 import { computed } from 'vue'
 import Wave from './Wave/index.vue'
 import { Icon } from '../Icon/index'
-import useClassesComputed from './utils/hooks/useClassesComputed'
+import useClassesComputed from './utils/hooks/button/useClassesComputed'
 const componentName = 'sj-button'
 export default {
   name: componentName
@@ -51,7 +51,7 @@ const props = withDefaults(defineProps<IProps>(), {
 })
 
 /**
- * computed
+ * classes
  */
 const classes = useClassesComputed(componentName, props)
 const waveDisabled = computed<boolean>(() => !props?.disabled && !props?.loading && !props?.text)

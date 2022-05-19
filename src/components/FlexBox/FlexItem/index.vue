@@ -5,9 +5,9 @@
 </template>
 
 <script lang="ts">
-import { computed, StyleValue } from 'vue'
 import isValidParent from 'src/utils/isValidParent'
-import isVaildNumber from 'src/utils/isVaildNumber'
+import useClassesComputed from '../utils/hooks/flex-item/useClassesComputed'
+import useStylesComputed from '../utils/hooks/flex-item/useStylesComputed'
 const componentName = 'sj-flex-item'
 export default {
   name: componentName
@@ -39,30 +39,9 @@ const props = withDefaults(defineProps<IProps>(), {
 })
 
 /**
- * computed
+ * classes && styles
  */
-const classNamePrefix = componentName
-const classes = computed(() => ([
-  classNamePrefix,
-  {
-    [`${classNamePrefix}-align-self-${props?.align}`]: !!props?.align
-  }
-]))
-
-const styles = computed<StyleValue>(() => {
-  const tempStyles: StyleValue = {}
-  if (isVaildNumber(props?.order)) {
-    tempStyles.order = Number(props?.order)
-  }
-
-  if (isVaildNumber(props?.grow)) {
-    tempStyles.flexGrow = Number(props?.grow)
-  }
-
-  if (isVaildNumber(props?.shrink)) {
-    tempStyles.flexShrink = Number(props?.shrink)
-  }
-  return tempStyles
-})
+const classes = useClassesComputed(componentName, props)
+const styles = useStylesComputed(props)
 
 </script>

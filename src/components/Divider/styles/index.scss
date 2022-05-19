@@ -1,0 +1,39 @@
+.sj-divider {
+  display: flex;
+  align-items: center;
+  margin: 24px 0;
+
+  &-left,
+  &-right {
+    flex-grow: 1;
+    border-top: 1px solid var(--sj-border-color);
+  }
+
+  &-text {
+    margin: 0 16px;
+    font-size: var(--js-font-size-large);
+  }
+
+  /* vertical */
+  &-vertical {
+    height: 1em;
+    display: inline-block;
+    margin: 0 8px;
+    vertical-align: middle;
+
+    .sj-divider-left {
+      height: 0.9em;
+      border-top-width: 0;
+      border-left: 1px solid var(--sj-border-color);
+    }
+  }
+
+  /* dashed */
+  &-dashed {
+    .sj-divider-left,
+    .sj-divider-right {
+      border-top-style: dashed;
+      border-left-style: dashed;
+    }
+  }
+}

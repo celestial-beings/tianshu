@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { computed } from 'vue'
+import useClassesComputed from '../utils/hooks/flex/useClassesComputed'
 const componentName = 'sj-flex'
 export default {
   name: componentName
@@ -28,17 +28,7 @@ const props = withDefaults(defineProps<IProps>(), {
 })
 
 /**
- * computed
+ * classes
  */
-const classNamePrefix = componentName
-const classes = computed(() => ([
-  classNamePrefix,
-  {
-    [`${classNamePrefix}-nowrap`]: props?.wrap === false,
-    [`${classNamePrefix}-wrap`]: props?.wrap === true,
-    [`${classNamePrefix}-direction-${props?.direction}`]: !!props?.direction,
-    [`${classNamePrefix}-justify-${props?.justify}`]: !!props?.justify,
-    [`${classNamePrefix}-align-${props?.align}`]: !!props?.align
-  }
-]))
+const classes = useClassesComputed(componentName, props)
 </script>

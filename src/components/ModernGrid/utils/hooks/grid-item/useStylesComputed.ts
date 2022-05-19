@@ -1,8 +1,9 @@
 import { computed } from 'vue'
 import isVaildNumber from 'src/utils/isVaildNumber'
-import { UseStylesComputed, StyleValue } from '../../../types/grid-item'
+import { IGridItemProps } from '../../../types'
+import { UseStylesComputed, StyleValue } from 'src/types/global'
 
-const useStylesComputed: UseStylesComputed = (props) => {
+const useStylesComputed: UseStylesComputed<IGridItemProps> = (props) => {
   const styles = computed<StyleValue>(() => {
     const tempStyles: StyleValue = {}
 

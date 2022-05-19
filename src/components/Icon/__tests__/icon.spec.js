@@ -17,7 +17,7 @@ describe('Icon组件单元测试', () => {
       it('type="loadng-c"', () => {
         const wrapper = mount(Icon, { propsData: { type: 'loading-c' } })
         expect(wrapper.classes().includes('loading-c')).toBe(true)
-        expect(wrapper.classes().includes('sj-circle-animation')).toBe(true)
+        expect(wrapper.classes().includes('sj-spin')).toBe(true)
       })
     })
 

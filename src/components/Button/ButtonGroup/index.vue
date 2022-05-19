@@ -1,11 +1,10 @@
 <template>
   <div :class="classes">
-    <slot ref="childrenRef"></slot>
+    <slot></slot>
   </div>
 </template>
 <script lang="ts">
-import { computed, ref } from 'vue'
-import { Classes } from 'src/types/global'
+import useClassesComputed from '../utils/hooks/buttonGroup/useClassesComputed'
 const componentName = 'sj-button-group'
 export default {
   name: componentName
@@ -13,8 +12,6 @@ export default {
 </script>
 
 <script setup lang="ts">
-const childrenRef = ref(null)
-
 /**
  * props
  */
@@ -27,17 +24,7 @@ interface IProps {
 const props = withDefaults(defineProps<IProps>(), { size: 'normal', vertical: false, round: false })
 
 /**
- * computed
+ * classes
  */
-const classNamePrefix = componentName
-const classes = computed<Classes>(() => ([
-  classNamePrefix,
-  {
-    [`${classNamePrefix}-size-${props?.size}`]: props?.size === 'small' || props?.size === 'large',
-    [`${classNamePrefix}-horizontal`]: !props?.vertical,
-    [`${classNamePrefix}-vertical`]: props?.vertical,
-    [`${classNamePrefix}-horizontal-round-${props?.size}`]: props?.round && !props?.vertical,
-    [`${classNamePrefix}-vertical-round-${props?.size}`]: props?.round && props?.vertical
-  }
-]))
+const classes = useClassesComputed(componentName, props)
 </script>

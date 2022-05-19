@@ -1,8 +1,9 @@
-import { computed, Ref, ComputedRef } from 'vue'
+import { computed } from 'vue'
 import isVaildNumber from 'src/utils/isVaildNumber'
-import IProps from '../../../types/row'
+import { IRowProps } from '../../../types'
+import { Ref, ComputedRef } from 'src/types/global'
 
-const useOffset: (size: Ref<string> | null, props: IProps) => ComputedRef<[number, number]> = (size, props) => {
+const useOffset: (size: Ref<string> | null, props: IRowProps) => ComputedRef<[number, number]> = (size, props) => {
   const offset = computed<[number, number]>(() => {
     let [horOffset, verOffset] = [0, 0]
     if (props?.gutter) {

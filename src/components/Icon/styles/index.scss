@@ -1,0 +1,20 @@
+@import '../font/iconfont.css';
+
+.sj-icon {
+  display: inline-block;
+  box-sizing: border-box;
+  font-size: var(--sj-font-size-normal);
+  color: var(--sj-primary-text-color);
+
+  &-size-small {
+    font-size: var(--sj-font-size-small);
+  }
+
+  &-size-normal {
+    font-size: var(--sj-font-size-normal);
+  }
+
+  &-size-large {
+    font-size: var(--sj-font-size-large);
+  }
+}

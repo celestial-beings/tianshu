@@ -1,9 +1,4 @@
-import { ComputedRef, StyleValue } from 'vue'
-import { Classes } from 'src/types/global'
-
-export type { Classes, StyleValue }
-
-interface IProps {
+export interface IButtonProps {
   long?: boolean;
   text?: boolean;
   disabled?: boolean;
@@ -18,6 +13,8 @@ interface IProps {
   htmlType?: 'button' | 'submit' | 'reset';
 }
 
-export type UseClassesComputed = (classNamePrefix: string, props: IProps) => ComputedRef<Classes>;
-
-export type UseStylesComputed = (props: IProps) => ComputedRef<StyleValue>;
+export interface IButtonGroupProps {
+  size?: 'small' | 'normal' | 'large';
+  vertical?: boolean;
+  round?: boolean;
+}
