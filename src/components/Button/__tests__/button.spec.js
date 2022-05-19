@@ -1,79 +1,140 @@
 import { mount } from '@vue/test-utils'
+import { defineComponent, h } from 'vue'
 import Button from 'src/components/Button/index.vue'
 
-const createComponent = (slot, props) => {
-  return defineComponent({
-    render() {
-      return h(Button, { ...props }, () => [slot])
-    }
-  })
-}
-
-describe('Grid组件单元测试', () => {
+describe('Button组件单元测试', () => {
   it('是否是Vue组件实例', () => {
     const wrapper = mount(Button)
     expect(wrapper.exists()).toBe(true)
   })
 
   it('基本使用', () => {
-    const wrapper = mount(createComponent('Button'))
+    const wrapper = mount(Button, {
+      slots: {
+        default: 'Button'
+      }
+    })
     expect(wrapper.attributes('type')).toBe('button')
     expect(wrapper.text()).toContain('Button')
     expect(wrapper.classes()).toContain('sj-button')
     expect(wrapper.classes()).toContain('sj-button-type-normal')
-    expect(wrapper.classes()).toContain('sj-button-size-small')
+    expect(wrapper.classes()).toContain('sj-button-size-normal')
   })
 
   describe('Props测试', () => {
     describe('long属性', () => {
       it('long=true', () => {
-        const wrapper = mount(createComponent('Button'), { long: true })
+        const wrapper = mount(Button, {
+          propsData: {
+            long: true
+          },
+          slots: {
+            default: 'Button'
+          }
+        })
         expect(wrapper.classes()).toContain('sj-button-long')
       })
 
       it('long=false', () => {
-        const wrapper = mount(createComponent('Button'), { long: false })
+        const wrapper = mount(Button, {
+          propsData: {
+            long: false
+          },
+          slots: {
+            default: 'Button'
+          }
+        })
         expect(wrapper.classes().includes('sj-button-long')).toBe(false)
       })
     })
 
     describe('text属性', () => {
       it('text=true', () => {
-        const wrapper = mount(createComponent('Button'), { text: true })
+        const wrapper = mount(Button, {
+          propsData: {
+            text: true
+          },
+          slots: {
+            default: 'Button'
+          }
+        })
         expect(wrapper.classes()).toContain('sj-button-normal-text')
       })
 
       it('text=false', () => {
-        const wrapper = mount(createComponent('Button'), { text: false })
+        const wrapper = mount(Button, {
+          propsData: {
+            text: false
+          },
+          slots: {
+            default: 'Button'
+          }
+        })
         expect(wrapper.classes().includes('sj-button-normal-text')).toBe(false)
       })
 
-      it('text=false and type="primary"', () => {
-        const wrapper = mount(createComponent('Button'), { text: true, type: 'primary' })
+      it('text=true and type="primary"', () => {
+        const wrapper = mount(Button, {
+          propsData: {
+            text: true,
+            type: 'primary'
+          },
+          slots: {
+            default: 'Button'
+          }
+        })
         expect(wrapper.classes()).toContain('sj-button-primary-text')
       })
     })
 
     describe('disabled属性', () => {
       it('disabled=true', () => {
-        const wrapper = mount(createComponent('Button'), { disabled: true })
+        const wrapper = mount(Button, {
+          propsData: {
+            disabled: true
+          },
+          slots: {
+            default: 'Button'
+          }
+        })
         expect(wrapper.classes()).toContain('sj-button-disabled')
       })
 
       it('disabled=false', () => {
-        const wrapper = mount(createComponent('Button'), { disabled: false })
+        const wrapper = mount(Button, {
+          propsData: {
+            disabled: false
+          },
+          slots: {
+            default: 'Button'
+          }
+        })
         expect(wrapper.classes().includes('sj-button-disabled')).toBe(false)
       })
     })
 
     describe('ghost属性', () => {
       it('ghost=true', () => {
-        const wrapper = mount(createComponent('Button'), { ghost: true })
+        const wrapper = mount(Button, {
+          propsData: {
+            ghost: true
+          },
+          slots: {
+            default: 'Button'
+          }
+        })
         expect(wrapper.classes()).toContain('sj-button-ghost')
       })
 
       it('ghost=false', () => {
-        const wrapper = mount(createComponent('Button'), { ghost: false })
+        const wrapper = mount(Button, {
+          propsData: {
+            ghost: false
+          },
+          slots: {
+            default: 'Button'
+          }
+        })
         expect(wrapper.classes().includes('sj-button-ghost')).toBe(false)
       })
     })
