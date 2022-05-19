@@ -9,8 +9,8 @@ const useClassesComputed: UseClassesComputed<IButtonProps> = (classNamePrefix, p
       `${classNamePrefix}-type-${props?.type}`,
       `${classNamePrefix}-size-${props?.size}`,
       {
-        [`${classNamePrefix}-shape-${props?.shape}`]: !!props?.shape,
-        [`${classNamePrefix}-shape-${props?.shape}-${props?.size}`]: !!props?.shape,
+        [`${classNamePrefix}-shape-${props?.shape}`]: !!props?.shape && props?.shape !== 'normal',
+        [`${classNamePrefix}-shape-${props?.shape}-${props?.size}`]: !!props?.shape && props?.shape !== 'normal',
         [`${classNamePrefix}-long`]: props?.long,
         [`${classNamePrefix}-loading`]: props?.loading,
         [`${classNamePrefix}-border-dashed`]: props?.dashed,

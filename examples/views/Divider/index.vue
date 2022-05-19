@@ -29,7 +29,7 @@
   </div>
   <div>
     <span>1</span>
-    <Divider text="分割线" placement="left" />
+    <Divider placement="left" />
     <span>2</span>
     <Divider text="分割线" placement="center" />
     <span>3</span>
@@ -45,7 +45,7 @@ export default {
 <script setup lang="ts">
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 span {
   font-size: 16px;
 }

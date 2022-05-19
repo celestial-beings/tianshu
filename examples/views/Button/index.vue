@@ -74,7 +74,7 @@
   <div class="demo" style="width: 360px;">
     <Button long type="primary">Button</Button>
   </div>
-  <div>
+  <div class="demo">
     <Button disabled>Button</Button>
     <Button disabled type="primary">Button</Button>
   </div>
@@ -134,7 +134,7 @@ const click = (event) => {
 </script>
 
 <style lang="scss">
-.demo>.sj-button {
+.demo >.sj-button {
   margin: 16px;
 }
 
