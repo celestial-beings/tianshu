@@ -369,13 +369,11 @@
   /* size */
   @each $key,
   $value in $button-size {
-    @if $key !='normal' {
-      &-size-#{$key} {
-        .sj-button {
-          height: map-get($value, 'height');
-          line-height: map-get($value, 'height');
-          font-size: map-get($value, 'fontSize');
-        }
+    &-size-#{$key} {
+      .sj-button {
+        height: map-get($value, 'height');
+        line-height: map-get($value, 'height');
+        font-size: map-get($value, 'fontSize');
       }
     }
   }

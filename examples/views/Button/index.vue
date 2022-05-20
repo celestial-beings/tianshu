@@ -50,6 +50,11 @@
         <Button type="primary">Button2</Button>
         <Button type="primary">Button3</Button>
       </ButtonGroup>
+      <ButtonGroup vertical>
+        <Button type="primary">Button1</Button>
+        <Button type="primary">Button2</Button>
+        <Button type="primary">Button3</Button>
+      </ButtonGroup>
     </Flex>
   </div>
   <div class="demo">

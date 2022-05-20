@@ -6,7 +6,7 @@ const useClassesComputed: UseClassesComputed<IButtonGroupProps> = (classNamePref
   const classes = computed<Classes>(() => ([
     classNamePrefix,
     {
-      [`${classNamePrefix}-size-${props?.size}`]: props?.size === 'small' || props?.size === 'large',
+      [`${classNamePrefix}-size-${props?.size}`]: props?.size,
       [`${classNamePrefix}-horizontal`]: !props?.vertical,
       [`${classNamePrefix}-vertical`]: props?.vertical,
       [`${classNamePrefix}-horizontal-round-${props?.size}`]: props?.round && !props?.vertical,

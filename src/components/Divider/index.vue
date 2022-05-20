@@ -29,7 +29,7 @@ interface IProps {
   text?: string;
   placement?: 'left' | 'right' | 'center';
   vertical?: boolean;
-  offset?: string;
+  offset?: string | number;
 }
 
 const props = withDefaults(defineProps<IProps>(), {
@@ -53,3 +53,7 @@ const classes = useClassesComputed(classNamePrefix, props)
 const leftStyles = useLeftStyles(hasText, props)
 const rightStyles = useRightStyles(hasText, props)
 </script>
+
+<style lang="scss">
+@import './styles/index.scss';
+</style>

@@ -5,7 +5,7 @@ export interface IProps {
   text?: string;
   placement?: 'left' | 'right' | 'center';
   vertical?: boolean;
-  offset?: string;
+  offset?: string | number;
 }
 
 export type UseStylesComputed = (hasText: ComputedRef<boolean>, props: IProps) => ComputedRef<StyleValue>;

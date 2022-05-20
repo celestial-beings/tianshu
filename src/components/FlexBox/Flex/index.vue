@@ -32,3 +32,7 @@ const props = withDefaults(defineProps<IProps>(), {
  */
 const classes = useClassesComputed(componentName, props)
 </script>
+
+<style lang="scss">
+@import '../styles/index.scss';
+</style>

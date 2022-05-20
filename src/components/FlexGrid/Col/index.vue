@@ -63,3 +63,7 @@ const offset: ComputedRef<[number, number]> = inject('gutterOffset') || computed
 const styles = useStylesComputed(size, offset, props)
 const classes = useClassesComputed(componentName, props)
 </script>
+
+<style lang="scss">
+@import '../styles/index.scss';
+</style>

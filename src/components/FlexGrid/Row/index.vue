@@ -52,3 +52,7 @@ const classes = computed<string[]>(() => [classNamePrefix])
  */
 provide('gutterOffset', offset)
 </script>
+
+<style lang="scss">
+@import '../styles/index.scss';
+</style>

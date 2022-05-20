@@ -23,3 +23,8 @@ const classes = useClassesComputed(componentName, props)
 
 const styles = useStylesComputed(props)
 </script>
+
+<style lang="scss">
+@import './font/iconfont.css';
+@import './styles/index.scss';
+</style>

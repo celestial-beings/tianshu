@@ -1,5 +1,4 @@
 import { mount } from '@vue/test-utils'
-import { defineComponent, h } from 'vue'
 import Button from 'src/components/Button/index.vue'
 
 describe('Button组件单元测试', () => {
@@ -137,6 +136,152 @@ describe('Button组件单元测试', () => {
         })
         expect(wrapper.classes().includes('sj-button-ghost')).toBe(false)
       })
+    })
+
+    describe('icon属性', () => {
+      const wrapper = mount(Button, {
+        propsData: {
+          icon: 'check'
+        },
+        slots: {
+          default: 'Button'
+        }
+      })
+      expect(wrapper.find('i').exists()).toBe(true)
+      expect(wrapper.find('i').classes()).toContain('check')
+    })
+
+    describe('loading属性', () => {
+      it('loading=true', () => {
+        const wrapper = mount(Button, {
+          propsData: {
+            loading: true
+          },
+          slots: {
+            default: 'Button'
+          }
+        })
+        expect(wrapper.find('.loading-a').exists()).toBe(true)
+      })
+
+      it('loading=false', () => {
+        const wrapper = mount(Button, {
+          propsData: {
+            loading: false
+          },
+          slots: {
+            default: 'Button'
+          }
+        })
+        expect(wrapper.find('.loading-a').exists()).toBe(false)
+      })
+    })
+
+    describe('shape属性', () => {
+      it('shape="circle"', () => {
+        const wrapper = mount(Button, {
+          propsData: {
+            shape: 'circle'
+          },
+          slots: {
+            default: 'Button'
+          }
+        })
+        expect(wrapper.classes()).toContain('sj-button-shape-circle')
+      })
+
+      it('shape="round"', () => {
+        const wrapper = mount(Button, {
+          propsData: {
+            shape: 'round'
+          },
+          slots: {
+            default: 'Button'
+          }
+        })
+        expect(wrapper.classes()).toContain('sj-button-shape-round')
+      })
+    })
+
+    describe('size属性', () => {
+      it('size="normal"', () => {
+        const wrapper = mount(Button, {
+          propsData: {
+            size: 'normal'
+          },
+          slots: {
+            default: 'Button'
+          }
+        })
+        expect(wrapper.classes()).toContain('sj-button-size-normal')
+      })
+
+      it('size="small"', () => {
+        const wrapper = mount(Button, {
+          propsData: {
+            size: 'small'
+          },
+          slots: {
+            default: 'Button'
+          }
+        })
+        expect(wrapper.classes()).toContain('sj-button-size-small')
+      })
+
+      it('size="large"', () => {
+        const wrapper = mount(Button, {
+          propsData: {
+            size: 'large'
+          },
+          slots: {
+            default: 'Button'
+          }
+        })
+        expect(wrapper.classes()).toContain('sj-button-size-large')
+      })
+    })
+
+    describe('type属性', () => {
+      const types = ['primary', 'success', 'warning', 'error', 'info', 'normal']
+      types.forEach(value => {
+        it(`type="${value}"`, () => {
+          const wrapper = mount(Button, {
+            propsData: {
+              type: value
+            },
+            slots: {
+              default: 'Button'
+            }
+          })
+          expect(wrapper.classes()).toContain(`sj-button-type-${value}`)
+        })
+      })
+    })
+
+    describe('dashed属性', () => {
+      it('dashed=true', () => {
+        const wrapper = mount(Button, {
+          propsData: {
+            dashed: true
+          },
+          slots: {
+            default: 'Button'
+          }
+        })
+        expect(wrapper.classes()).toContain('sj-button-border-dashed')
+      })
+    })
+  })
+
+  describe('Event测试', () => {
+    it('click', () => {
+      const wrapper = mount(Button, {
+        slots: {
+          default: 'Button'
+        }
+      })
+      wrapper.vm.$emit('click')
+      expect(wrapper.emitted().click).toBeTruthy()
     })
   })
 })

@@ -1,7 +1,7 @@
 <template>
   <button :type="htmlType" :autofocus="autoFocus" :class="classes" @click="handleClick">
-    <Icon class="sj-button-preset-icon" v-if="loading" type="loading-a" />
-    <Icon class="sj-button-preset-icon" v-if="!!icon" :type="icon" />
+    <Icon v-if="loading" class="sj-button-preset-icon" type="loading-a" />
+    <Icon v-if="!!icon" class="sj-button-preset-icon" :type="icon" />
     <slot></slot>
     <Wave v-if="waveDisabled" />
   </button>
@@ -9,7 +9,7 @@
 <script lang="ts">
 import { computed } from 'vue'
 import Wave from './Wave/index.vue'
-import { Icon } from '../Icon/index'
+import Icon from '../Icon/index.vue'
 import useClassesComputed from './utils/hooks/button/useClassesComputed'
 const componentName = 'sj-button'
 export default {
@@ -68,3 +68,7 @@ const handleClick = (event) => {
   if (clickable.value) emit('click', event)
 }
 </script>
+
+<style lang="scss">
+@import './styles/index.scss';
+</style>
