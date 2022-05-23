@@ -1,1 +1,5 @@
-export { default as Icon } from './index.vue'
+import withInstall from 'src/utils/withInstall'
+import Icon from './index.vue'
+import './styles'
+
+export default withInstall(Icon)

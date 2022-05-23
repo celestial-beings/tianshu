@@ -2,8 +2,8 @@
   <i :class="classes" :style="styles" />
 </template>
 <script lang="ts">
-import useClassesComputed from './utils/hooks/useClassesComputed'
-import useStylesComputed from './utils/hooks/useStylesComputed'
+import useClassesComputed from './hooks/useClassesComputed'
+import useStylesComputed from './hooks/useStylesComputed'
 const componentName = 'sj-icon'
 export default {
   name: componentName
@@ -23,8 +23,3 @@ const classes = useClassesComputed(componentName, props)
 
 const styles = useStylesComputed(props)
 </script>
-
-<style lang="scss">
-@import './font/iconfont.css';
-@import './styles/index.scss';
-</style>

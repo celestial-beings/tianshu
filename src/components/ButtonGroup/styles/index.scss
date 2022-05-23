@@ -1,0 +1,141 @@
+@import 'src/components/Button/styles/var.scss';
+
+.sj-button-group {
+  display: inline-block;
+
+  .sj-button {
+    border-radius: 0;
+  }
+
+  /* vertical */
+  &-horizontal {
+    .sj-button {
+      &:first-of-type {
+        border-top-left-radius: var(--sj-border-radius);
+        border-bottom-left-radius: var(--sj-border-radius);
+      }
+
+      &:last-of-type {
+        border-top-right-radius: var(--sj-border-radius);
+        border-bottom-right-radius: var(--sj-border-radius);
+      }
+
+      &-type-normal {
+        border-right-color: transparent;
+
+        &:last-of-type {
+          border-right-color: var(--sj-border-color);
+        }
+
+        &:hover,
+        &:focus {
+          border-right-color: var(--sj-primary-hover-color);
+
+          &+.sj-button-type-normal {
+            border-left-color: transparent;
+          }
+        }
+      }
+
+      @each $key,
+      $value in $button-ghost {
+        &-type-#{$key} {
+          border-right-color: #ffffff;
+
+          &:last-of-type {
+            border-right-color: map-get($value, "color");
+          }
+        }
+      }
+    }
+
+    /* horizontal round */
+    @each $key,
+    $value in $button-size {
+      &-round-#{$key} {
+        .sj-button:first-of-type {
+          border-top-left-radius: map-get($value, 'height');
+          border-bottom-left-radius: map-get($value, 'height');
+        }
+
+        .sj-button:last-of-type {
+          border-top-right-radius: map-get($value, 'height');
+          border-bottom-right-radius: map-get($value, 'height');
+        }
+      }
+    }
+  }
+
+  &-vertical {
+    display: inline-flex;
+    flex-direction: column;
+
+    .sj-button {
+      &:first-of-type {
+        border-top-left-radius: var(--sj-border-radius);
+        border-top-right-radius: var(--sj-border-radius);
+      }
+
+      &:last-of-type {
+        border-bottom-left-radius: var(--sj-border-radius);
+        border-bottom-right-radius: var(--sj-border-radius);
+      }
+
+      &-type-normal {
+        border-bottom-color: transparent;
+
+        &:last-of-type {
+          border-bottom-color: var(--sj-border-color);
+        }
+
+        &:hover,
+        &:focus {
+          border-bottom-color: var(--sj-primary-hover-color);
+
+          &+.sj-button-type-normal {
+            border-top-color: transparent;
+          }
+        }
+      }
+
+      @each $key,
+      $value in $button-ghost {
+        &-type-#{$key} {
+          border-bottom-color: #ffffff;
+
+          &:last-of-type {
+            border-bottom-color: map-get($value, "color");
+          }
+        }
+      }
+    }
+
+    /* vertical round */
+    @each $key,
+    $value in $button-size {
+      &-round-#{$key} {
+        .sj-button:first-of-type {
+          border-top-left-radius: map-get($value, 'height');
+          border-top-right-radius: map-get($value, 'height');
+        }
+
+        .sj-button:last-of-type {
+          border-bottom-left-radius: map-get($value, 'height');
+          border-bottom-right-radius: map-get($value, 'height');
+        }
+      }
+    }
+  }
+
+  /* size */
+  @each $key,
+  $value in $button-size {
+    &-size-#{$key} {
+      .sj-button {
+        height: map-get($value, 'height');
+        line-height: map-get($value, 'height');
+        font-size: map-get($value, 'fontSize');
+      }
+    }
+  }
+}

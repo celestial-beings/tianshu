@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Icon from 'src/components/Icon/index.vue'
+import Icon from '../index.vue'
 
 describe('Icon组件单元测试', () => {
   it('是否是Vue组件实例', () => {

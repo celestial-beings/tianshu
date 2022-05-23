@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Button from 'src/components/Button/index.vue'
+import Button from '../index.vue'
 
 describe('Button组件单元测试', () => {
   it('是否是Vue组件实例', () => {

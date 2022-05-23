@@ -11,9 +11,9 @@
 </template>
 <script lang="ts">
 import { computed, useSlots } from 'vue'
-import useClassesComputed from './utils/hooks/useClassesComputed'
-import useLeftStyles from './utils/hooks/useLeftStylesComputed'
-import useRightStyles from './utils/hooks/useRightStylesComputed'
+import useClassesComputed from './hooks/useClassesComputed'
+import useLeftStyles from './hooks/useLeftStylesComputed'
+import useRightStyles from './hooks/useRightStylesComputed'
 const componentName = 'sj-divider'
 export default {
   name: componentName
@@ -53,7 +53,3 @@ const classes = useClassesComputed(classNamePrefix, props)
 const leftStyles = useLeftStyles(hasText, props)
 const rightStyles = useRightStyles(hasText, props)
 </script>
-
-<style lang="scss">
-@import './styles/index.scss';
-</style>

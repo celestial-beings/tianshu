@@ -1,2 +1,5 @@
-export { default as Button } from './index.vue'
-export { default as ButtonGroup } from './ButtonGroup/index.vue'
+import withInstall from 'src/utils/withInstall'
+import Button from './index.vue'
+import './styles'
+
+export default withInstall(Button)

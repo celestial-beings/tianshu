@@ -1,4 +1,4 @@
-export interface IButtonProps {
+export interface IProps {
   long?: boolean;
   text?: boolean;
   disabled?: boolean;
@@ -11,10 +11,4 @@ export interface IButtonProps {
   size?: 'small' | 'normal' | 'large';
   type?: 'primary' | 'success' | 'warning' | 'error' | 'info' | 'normal';
   htmlType?: 'button' | 'submit' | 'reset';
-}
-
-export interface IButtonGroupProps {
-  size?: 'small' | 'normal' | 'large';
-  vertical?: boolean;
-  round?: boolean;
 }

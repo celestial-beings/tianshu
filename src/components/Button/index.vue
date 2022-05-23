@@ -6,11 +6,12 @@
     <Wave v-if="waveDisabled" />
   </button>
 </template>
+
 <script lang="ts">
 import { computed } from 'vue'
 import Wave from './Wave/index.vue'
-import Icon from '../Icon/index.vue'
-import useClassesComputed from './utils/hooks/button/useClassesComputed'
+import Icon from '../Icon'
+import useClassesComputed from './hooks/useClassesComputed'
 const componentName = 'sj-button'
 export default {
   name: componentName
@@ -68,7 +69,3 @@ const handleClick = (event) => {
   if (clickable.value) emit('click', event)
 }
 </script>
-
-<style lang="scss">
-@import './styles/index.scss';
-</style>
