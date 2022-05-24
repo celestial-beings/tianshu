@@ -14,6 +14,7 @@ import { computed, useSlots } from 'vue'
 import useClassesComputed from './hooks/useClassesComputed'
 import useLeftStyles from './hooks/useLeftStylesComputed'
 import useRightStyles from './hooks/useRightStylesComputed'
+
 const componentName = 'sj-divider'
 export default {
   name: componentName

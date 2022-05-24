@@ -1,41 +1,57 @@
 import path from 'path'
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv, LibraryFormats } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJSX from '@vitejs/plugin-vue-jsx'
 import eslintPlugin from 'vite-plugin-eslint'
+import { peerDependencies, dependencies } from './package.json'
+
+const externalPackages = [
+  ...Object.keys(dependencies || {}),
+  ...Object.keys(peerDependencies || {})
+]
+
+// Creating regexes of the packages to make sure subpaths of the
+// packages are also treated as external
+const regexesOfPackages = externalPackages.map(
+  (packageName) => new RegExp(`^${packageName}(/.*)?`)
+)
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  build: {
-    lib: {
-      entry: path.resolve(__dirname, 'src/main.ts'),
-      name: 'shenji-ui',
-      fileName: (format) => `${format}/index.js`
-    },
-    rollupOptions: {
-      // input: {
-      //   idnex: path.resolve(__dirname, 'src/main.ts')
-      // },
-      output: {
-        // dir: 'lib',
-        // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
-        globals: {
-          vue: 'Vue'
-        }
+export default ({ mode }) => {
+  const env = loadEnv(mode, path.resolve(__dirname, 'env'))
+  const format = env.VITE_BUILD_FORMAT
+
+  return defineConfig({
+    envDir: './env',
+    build: {
+      cssCodeSplit: false,
+      outDir: `dist/${mode === 'es' ? 'es' : 'lib'}`,
+      lib: {
+        entry: path.resolve(__dirname, 'src/index.ts'),
+        formats: [format as LibraryFormats]
       },
-      // 确保外部化处理那些你不想打包进库的依赖
-      external: ['vue']
+      rollupOptions: {
+        output: {
+          // dir: `dist/${mode === 'es' ? 'es' : 'lib'}`,
+          preserveModules: true,
+          entryFileNames: '[name].js'
+        },
+        // 确保外部化处理那些你不想打包进库的依赖
+        external: regexesOfPackages
+      },
+      target: 'esnext',
+      sourcemap: false
+    },
+    plugins: [
+      vue(),
+      vueJSX(),
+      eslintPlugin() as never
+    ],
+    resolve: {
+      alias: [
+        { find: 'src', replacement: path.resolve(__dirname, 'src') },
+        { find: '#', replacement: path.resolve(__dirname, 'examples') }
+      ]
     }
-  },
-  plugins: [
-    vue(),
-    vueJSX(),
-    eslintPlugin() as never
-  ],
-  resolve: {
-    alias: [
-      { find: 'src', replacement: path.resolve(__dirname, 'src') },
-      { find: '#', replacement: path.resolve(__dirname, 'examples') }
-    ]
-  }
-})
+  })
+}

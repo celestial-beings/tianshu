@@ -8,7 +8,9 @@
   "module": "./dist/umd/index.js",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "node scripts/build/index.js",
+    "build:es": "vue-tsc --noEmit && vite build --mode es",
+    "build:lib": "vue-tsc --noEmit && vite build --mode lib",
     "serve": "vite preview",
     "lint": "eslint src/**/*.{ts,tsx,vue} --fix",
     "stylelint": "stylelint \"**/*.{css}\"",
@@ -51,5 +53,6 @@
     "vite-plugin-eslint": "^1.3.0",
     "vue-jest": "^5.0.0-alpha.10",
     "vue-tsc": "^0.3.0"
-  }
+  },
+  "peerDependencies": {}
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="demo">
-    <ButtonGroup>
+    <!-- <ButtonGroup>
       <Button>Button1</Button>
       <Button>Button2</Button>
       <Button>Button3</Button>
@@ -21,7 +21,7 @@
         <Button type="primary">Button2</Button>
         <Button type="primary">Button3</Button>
       </ButtonGroup>
-    </Flex>
+    </Flex> -->
     <Flex align="center">
       <ButtonGroup size="small" round>
         <Button type="primary">Button1</Button>
