@@ -1,3 +1,9 @@
-const buildJS = require('./build')
+const buildJS = require('./core')
+const buildStyles = require('./styles')
 
-buildJS()
+const main = async () => {
+  await buildJS()
+  await buildStyles()
+}
+
+main()

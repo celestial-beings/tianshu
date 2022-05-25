@@ -1,10 +1,11 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-// import { Button } from '../dist/es/index.js'
-// import Icon from '../dist/es/components/Icon/index.js'
-// import Button from '../dist/es/components/Button/index.js'
-// import ButtonGroup from '../dist/es/components/ButtonGroup/index.js'
-// import '../dist/es/style.css'
+// import shenji from '../src/index'
+// import Button from '../src/components/Button/index'
+import shenji from '../dist/es/index.mjs'
+import '../dist/es/style.css'
 
-createApp(App).use(router).mount('#app')
+console.log(shenji)
+
+createApp(App).use(router).use(shenji).mount('#app')
